@@ -67,21 +67,39 @@ npm run preview
 
 ## Deploy to Vercel
 
+This app lives in a **subfolder** of the Git repository (`mini-recruitment-dashboard/`). Choose **one** of these setups:
+
+### Option A — Root Directory (recommended)
+
+In the Vercel project: **Settings → General → Root Directory** → set to:
+
+```text
+mini-recruitment-dashboard
+```
+
+Leave Build Command and Output Directory as Vite defaults (`npm run build`, `dist`). The `vercel.json` inside this folder handles SPA routing.
+
+### Option B — Deploy from repository root
+
+The repo root includes a `vercel.json` that builds this subfolder automatically. Import the GitHub repo without changing Root Directory.
+
 ### Option 1: Vercel CLI
 
+From the app folder:
+
 ```bash
-npm install -g vercel
-vercel
+cd mini-recruitment-dashboard
+npx vercel
 ```
 
 ### Option 2: GitHub Integration
 
-1. Push this project to a GitHub repository
-2. Go to [vercel.com](https://vercel.com) and import the repository
-3. Vercel auto-detects Vite — no extra configuration needed
-4. Click **Deploy**
+1. Push the repository to GitHub
+2. Import the repo at [vercel.com](https://vercel.com)
+3. Apply **Option A** or **Option B** above
+4. Redeploy
 
-The included `vercel.json` handles SPA routing so all routes redirect to `index.html`.
+`vercel.json` rewrites send all routes to `index.html` so `/dashboard`, `/jobs`, etc. work on refresh.
 
 ### Build Settings (auto-detected)
 

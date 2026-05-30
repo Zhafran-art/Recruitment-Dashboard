@@ -1,0 +1,7 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "installCommand": "npm install --prefix mini-recruitment-dashboard",
+  "buildCommand": "npm run build --prefix mini-recruitment-dashboard",
+  "outputDirectory": "mini-recruitment-dashboard/dist",
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+}
